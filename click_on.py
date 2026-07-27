@@ -3,6 +3,13 @@ from time import sleep
 
 
 class MouseMover:
+    """
+    Uso:
+
+    mouse = MouseMover()
+    mouse.move_mouse(1297, 18)
+    mouse.move_mouse(1187, 46)
+    """
 
     def __init__(self, move_val=20, offset=1, pointer_speed=0):
         self.move_val = move_val
