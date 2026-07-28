@@ -28,22 +28,24 @@ class MouseMover:
 
     import click_on as cl
     cl.clickOn(1224,53)
-    cl.click_on(187, 460)
+    cl.clickOn(187, 460)
     """
     debug = False
 
     def __init__(
         self,
         move_val=20,
-        pointer_speed=0
+        pointer_speed=0,
+        type='direct' #ou 'steps'
     ):
         self.move_val = move_val
         self.pointer_speed = pointer_speed
+        self.type = type
 
 
     def click_on(self, x, y):
         start_ydo()
-        # reset para origem
+        # reset para 1,1 (por isso tem q subtrair 1)
         subprocess.run([
             "ydotool",
             "mousemove",
@@ -52,9 +54,21 @@ class MouseMover:
             "-y",
             "-2000"
         ])
-        
 
-        self.debug_pos()
+
+        self.debug_pos(msg='inicio')
+
+        if self.type =='direct':
+            sleep(0.1)
+            subprocess.run([
+                "ydotool",
+                "mousemove",
+                str(x-1),
+                str(y-1)
+            ])
+            self.mouse_click()
+            self.debug_pos(self.debug_pos(msg='fim'))
+            return
 
         self.__move_axis(x, "x")
         self.__move_axis(y, "y")
@@ -127,7 +141,7 @@ class MouseMover:
 
 
     @staticmethod
-    def debug_pos():
+    def debug_pos(msg='Atual'):
         if not MouseMover.debug:
             return
         
@@ -148,7 +162,7 @@ class MouseMover:
         coord = stdout.split(' ')[0].split(',')
 
         print(
-            f"posição atual: {coord}"
+            f"posição {msg}: {coord[0]},{coord[1]}"
         )
         return 
 
@@ -184,7 +198,7 @@ def working_test():
         y
     )
 
-def clickOn(x,y):
+def clickOn(x,y,debug=False):
     """
         Uso:
     
@@ -192,5 +206,6 @@ def clickOn(x,y):
         cl.clickOn(1224,53)
         cl.click_on(187, 460)
         """
+    MouseMover.debug = debug
     n = MouseMover()
     n.click_on(x,y)

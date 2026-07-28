@@ -1,3 +1,6 @@
+#obs (remover)
+- SERA Q NA VDD O SCRIPT NEM PRECISA DE TODA AQUELA LOGICA, BASTANDO APENAS MOVER PARA 1,1 E DPS MOVER O XY REQUERIDO?
+
 # Dependencias
 - ferramenta ydotool instalada
        -necessário configurar grupo input (add o user e add rules; pesquisar!)
