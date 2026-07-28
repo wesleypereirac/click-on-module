@@ -169,8 +169,10 @@ class MouseMover:
 
 
 
-def teste():
-
+def working_test():
+    """
+    Função para teste de funcionamento
+    """
     mouse = MouseMover()
 
     print("[warning] remover teste!")
@@ -182,6 +184,4 @@ def teste():
         y
     )
 
-
-# remover depois
-teste()     
+  
