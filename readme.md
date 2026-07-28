@@ -7,10 +7,12 @@
 	-na primeira execução, rode no terminal ydotoold (para o "mouse" ser criado) e pode pressionar ctrl+c
 	-desativar aceleração do ponteiro em settings -> mouse -> selecinar device "ydotool (...)" -> desmarcar aceleração do ponteiro -> aplicar
 
-# uso:
-- baixar repo
-- se quiser, rodar antes python -m venv venv
+# setup e uso
+## instalar como lib (global ou com venv)
+- se usar venv, baixar repo na mesma pasta aonde está a pasta venv/ do seu projeto
 - pip install -e click_on_module
+
+## importação e uso
 - no console python ou arquivo .py:
 `from click_on.click_on import clickOn
 clickOn(1224,53)
