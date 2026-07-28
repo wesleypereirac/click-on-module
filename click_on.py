@@ -185,5 +185,12 @@ def working_test():
     )
 
 def clickOn(x,y):
+    """
+        Uso:
+    
+        import click_on as cl
+        cl.clickOn(1224,53)
+        cl.click_on(187, 460)
+        """
     n = MouseMover()
     n.click_on(x,y)

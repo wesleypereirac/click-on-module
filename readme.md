@@ -11,3 +11,5 @@
 import click_on as cl
 cl.clickOn(1224,53)
 cl.click_on(187, 460)
+
+obs: certifique de rodar "sudo pkill ydotoold" após terminar de usar!
