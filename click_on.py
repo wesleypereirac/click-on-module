@@ -26,11 +26,11 @@ class MouseMover:
     """
     Uso:
 
-    mouse = MouseMover()
-    mouse.click_on(1297, 18)
-    mouse.click_on(1187, 46)
+    import click_on as cl
+    cl.clickOn(1224,53)
+    cl.click_on(187, 460)
     """
-    debug = True
+    debug = False
 
     def __init__(
         self,
@@ -184,4 +184,6 @@ def working_test():
         y
     )
 
-  
+def clickOn(x,y):
+    n = MouseMover()
+    n.click_on(x,y)

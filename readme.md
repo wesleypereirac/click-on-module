@@ -8,7 +8,6 @@
 	-desativar aceleração do ponteiro em settings -> mouse -> selecinar device "ydotool (...)" -> desmarcar aceleração do ponteiro -> aplicar
 
 # uso:
-mouse = MouseMover()
-
-mouse.move_mouse(1297, 18)
-mouse.move_mouse(1187, 46)
+import click_on as cl
+cl.clickOn(1224,53)
+cl.click_on(187, 460)
