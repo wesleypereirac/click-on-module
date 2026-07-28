@@ -8,8 +8,12 @@
 	-desativar aceleração do ponteiro em settings -> mouse -> selecinar device "ydotool (...)" -> desmarcar aceleração do ponteiro -> aplicar
 
 # uso:
-import click_on as cl
-cl.clickOn(1224,53)
-cl.click_on(187, 460)
+- baixar repo
+- se quiser, rodar antes python -m venv venv
+- pip install -e click_on_module
+- no console python ou arquivo .py:
+`from click_on.click_on import clickOn
+clickOn(1224,53)
+click_on(187, 460)`
 
 obs: certifique de rodar "sudo pkill ydotoold" após terminar de usar!
