@@ -2,6 +2,9 @@ import subprocess
 import time
 from time import sleep
 
+"""
+importante: settings -> mouse -> device -> selecionar ydotool -> desativar aceleração do ponteiro
+"""
 
 def start_ydo():
     # Verifica se o daemon já existe
@@ -31,8 +34,8 @@ class MouseMover:
 
     def __init__(
         self,
-        move_val=50,
-        pointer_speed=0.008
+        move_val=20,
+        pointer_speed=0
     ):
         self.move_val = move_val
         self.pointer_speed = pointer_speed
@@ -49,8 +52,7 @@ class MouseMover:
             "-y",
             "-2000"
         ])
-
-        sleep(0.2)
+        
 
         self.debug_pos()
 
@@ -73,10 +75,10 @@ class MouseMover:
 
     def __move_axis(self, target, axis):
 
-        iterations = target // self.move_val
+        iterations = (target-1) // self.move_val
 
-        remainder = target % self.move_val
-        print(f'\n[DEBUG]\n iterations: {iterations}\n  remainder: {remainder}\n  target: {target}\n  move_val: {self.move_val}\n\n')
+        remainder = (target - 1) % self.move_val
+        
 
 
         for _ in range(iterations):
@@ -97,7 +99,7 @@ class MouseMover:
                 str(dy)
             ])
 
-            sleep(0.1) #self.pointer_speed)
+            sleep(self.pointer_speed)
 
 
         # movimento restante
@@ -120,7 +122,7 @@ class MouseMover:
                 "-y",
                 str(dy)
             ])
-            print(f'[debug] no RESTO, movendo {dx},{dy}')
+            
 
 
 
@@ -138,14 +140,17 @@ class MouseMover:
             stderr=subprocess.PIPE,
             text=True
         )
-        sleep(0.5)
+        sleep(0.3)
 
         MouseMover.mouse_click()
+        sleep(0.1)
         stdout, _ = proc.communicate()
+        coord = stdout.split(' ')[0].split(',')
 
         print(
-            f"posição atual: {stdout.strip()}"
+            f"posição atual: {coord}"
         )
+        return 
 
 
 
